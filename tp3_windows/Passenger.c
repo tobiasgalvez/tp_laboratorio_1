@@ -17,7 +17,7 @@ int menu()
 {
 	int opcion;
 
-	printf("\n************************MENU EMPLEADOS************************\n");
+	printf("\n************************MENU PASAJEROS************************\n");
 	printf("1. Cargar los datos de los pasajeros desde el archivo data.csv (modo texto).\n");
 	printf("2. Cargar los datos de los pasajeros desde el archivo data.bin (modo binario).\n");
 	printf("3. Alta de pasajero\n");
