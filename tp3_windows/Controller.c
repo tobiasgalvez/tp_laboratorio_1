@@ -155,7 +155,7 @@ int controller_editPassenger(LinkedList* pArrayListPassenger)
 
 		if(pArrayListPassenger!=NULL)
 		{
-			printf("\n*********************Modificacion empleados********************************\n");
+			printf("\n*********************Modificacion pasajeros********************************\n");
 			if(Passenger_edit(pArrayListPassenger) == -1)
 			{
 				printf("Hubo un error al realizar la modificacion\n");
@@ -182,7 +182,7 @@ int controller_removePassenger(LinkedList* pArrayListPassenger)
 
 	   if(pArrayListPassenger != NULL)
 	   {
-		   printf("\n*************************Alta de pasajeros**********************************\n");
+		   printf("\n*************************Baja de pasajeros**********************************\n");
 		   if(Passenger_remove(pArrayListPassenger) == -1)
 		   {
 			   printf("Lo sentimos, hubo un error al realizar la baja. Reintentelo luego\n");
