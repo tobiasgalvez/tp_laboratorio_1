@@ -29,6 +29,7 @@ detallan las funciones que esta biblioteca debe tener.
 #include "ArrayPassenger.h"
 #include "typePassenger.h"
 #include "statusFlight.h"
+#include "hardcodeo.h"
 #define LEN 2000
 #define LENTYPE 3
 #define LENSTATUS 3
@@ -38,21 +39,21 @@ int main(void) {
 	setbuf(stdout, NULL);
 	char seguir='s';
 	int nextId=1000;
-	int flagAdd;
+	int flagAdd=0;
 	int orderCase;
 
-	Passenger listPassengers[LEN]; /*= {{1000, "Luciano", "Sposito", 145000.35, "t54nh78", 2, 101, 1},
-									 {1001, "Nicolas", "Evangelista", 45000.57, "123asdqww", 2, 100, 1},
-									 {1002, "Marco", "Liporace", 90000, "tgh56mn", 1, 102, 1},
-									 {1003, "Juan", "Massarella", 340000.59, "asrt53sd", 2, 100, 1},
-									 {1004, "Uriel", "Farias", 39000.14, "178kgh", 3, 102, 1}};*/  //HARDCODEO DE PASAJEROS
-
+	Passenger listPassengers[LEN];
 	eTypePassenger listType[LENTYPE] = {{1, "Clase economica"}, {2, "Clase Premium"}, {3, "Primera Clase"}};
 	eStatusFlight listStatusFlight[LENSTATUS] = {{100, "Activo"}, {101, "Reprogramado"}, {102, "Cancelado"}};
 
 	if(initPassengers(listPassengers, LEN) == -1)
 	{
 		printf("Hubo un error al inicializar los pasajeros\n");
+	}
+
+	if(hardcodearPasajeros(listPassengers, LEN, 5, &nextId) != -1)
+	{
+		flagAdd=1;
 	}
 
 	do
@@ -64,13 +65,13 @@ int main(void) {
 			if(addPassenger(listPassengers, LEN, &nextId, listPassengers->name, listPassengers->lastName, listPassengers->price, listPassengers->idTypePassenger, listPassengers->flycode, listPassengers->idStatusFlight, listType, LENTYPE, listStatusFlight, LENSTATUS) == 0)
 			{
 				printf("Alta de pasajero exitosa!!!\n");
+				flagAdd=1;
 			}
 			else
 			{
 				printf("Hubo un error al dar de alta al pasajero\n");
 			}
 
-			flagAdd=1;
 			break;
 		case 2:
 			if(flagAdd == 0)
